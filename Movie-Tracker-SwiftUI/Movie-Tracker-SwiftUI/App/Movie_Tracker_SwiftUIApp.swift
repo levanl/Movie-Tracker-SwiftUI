@@ -11,7 +11,7 @@ import SwiftUI
 struct Movie_Tracker_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
     }
 }

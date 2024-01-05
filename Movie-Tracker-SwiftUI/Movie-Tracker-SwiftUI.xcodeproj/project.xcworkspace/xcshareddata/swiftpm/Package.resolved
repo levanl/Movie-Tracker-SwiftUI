@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "network-manager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/anachikhladze/network-manager",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ddcadc36eab1ab7f4f48e3fa562aac8dd4c7ba30"
+      }
+    }
+  ],
+  "version" : 2
+}

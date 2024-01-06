@@ -72,4 +72,3 @@ struct MoviesInCinemaDetailsView: View {
         .shadow(radius: 0)
     }
 }
-

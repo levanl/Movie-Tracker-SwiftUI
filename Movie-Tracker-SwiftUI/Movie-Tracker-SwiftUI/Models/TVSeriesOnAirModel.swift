@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-struct TVSeriesOnAirModel {
+struct TVSeriesOnAirModel: Identifiable {
     let TVSeriesOnAirName: String
     let TVSeriesOnAirYear: String
-    let TVSeriesOnAirLanguage: String
+    var TVSeriesOnAirLanguage: String
     let TVSeriesOnAirImage: String
     let TVSeriesOnAirOverview: String
+    let id = UUID()
     
     init(_ tvSeries: TVSeriesOnAir) {
         TVSeriesOnAirName = tvSeries.original_name
-        TVSeriesOnAirYear = tvSeries.first_air_date
-        TVSeriesOnAirLanguage = tvSeries.original_language
+        TVSeriesOnAirYear = String(tvSeries.first_air_date.prefix(4))
+        TVSeriesOnAirLanguage = tvSeries.original_language.uppercased()
         TVSeriesOnAirImage = "https://image.tmdb.org/t/p/w500" + tvSeries.poster_path
         TVSeriesOnAirOverview = tvSeries.overview
     }
@@ -45,7 +46,7 @@ struct TVSeriesOnAirResponse: Decodable {
 struct TVSeriesOnAir: Decodable {
     let original_name: String
     let first_air_date: String
-    let original_language: String
+    var original_language: String
     let poster_path: String
     let overview: String
     

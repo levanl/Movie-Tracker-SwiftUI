@@ -7,12 +7,22 @@
 
 import SwiftUI
 
+
 struct TVSeriesOnAirView: View {
+    @ObservedObject private var viewModel = TVSeriesOnAirViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                ForEach(viewModel.TVSeriesOnAir, id: \.TVSeriesOnAirName) { series in
+                    TVSeriesOnAirCell(TVSeriesOnAirmodel: series)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            .padding()
+        }
     }
 }
 
-#Preview {
-    TVSeriesOnAirView()
-}
+

@@ -21,7 +21,7 @@ class PopularTVSeriesViewModel: ObservableObject {
     
     
     private func fetchPopularTVSeries() async {
-        let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=a27bd3ea25aaafd9c7c1fea4183a7eba"
+        let urlString = "https://api.themoviedb.org/3/tv/popular?api_key=a27bd3ea25aaafd9c7c1fea4183a7eba"
 
         do {
             let popularTVSeriesResponse: PopularTVSeriesModel = try await NetworkManager.shared.fetchData(fromURL: urlString)

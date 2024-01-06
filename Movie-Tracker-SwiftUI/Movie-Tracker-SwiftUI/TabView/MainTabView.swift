@@ -20,7 +20,7 @@ struct MainTabView: View {
                     Image(systemName: "person")
                     Text("Persons")
                 }
-            PopularTVSeriesView()
+            PopularTVSeriesView(viewModel: PopularTVSeriesViewModel())
                 .tabItem {
                     Image(systemName: "tv.inset.filled")
                     Text("TV Series")

@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct PopularTVSeriesView: View {
+    
+    @StateObject var viewModel: PopularTVSeriesViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(viewModel.bangladesh)
     }
 }
 
 #Preview {
-    PopularTVSeriesView()
+    PopularTVSeriesView(viewModel: PopularTVSeriesViewModel())
 }

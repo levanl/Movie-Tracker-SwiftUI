@@ -7,18 +7,14 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    // MARK: - Body
     var body: some View {
         TabView {
             PopularMoviesView()
                 .tabItem {
                     Image(systemName: "movieclapper")
                     Text("Movies")
-                    
-                }
-            PopularPersonsView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Persons")
                 }
             PopularTVSeriesView()
                 .tabItem {

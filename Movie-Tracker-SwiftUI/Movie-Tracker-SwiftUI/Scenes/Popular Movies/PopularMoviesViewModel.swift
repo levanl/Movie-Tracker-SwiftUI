@@ -9,7 +9,7 @@ import SwiftUI
 import NetworkManager
 
 class PopularMoviesViewModel: ObservableObject {
-    @Published var movies: [Result] = []
+    @Published var movies: [PopularMoviesResult] = []
     init() {
             Task {
                 await fetchPopularMovies()

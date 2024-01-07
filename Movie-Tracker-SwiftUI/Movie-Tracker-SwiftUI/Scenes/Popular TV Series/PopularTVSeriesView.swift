@@ -9,32 +9,22 @@ import SwiftUI
 
 struct PopularTVSeriesView: View {
     
-    @StateObject var viewModel: PopularTVSeriesViewModel
+    // MARK: - Properties
+    @StateObject var viewModel = PopularTVSeriesViewModel()
     
+    // MARK: - Body
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(viewModel.popularTVSeries, id: \.id) { tvSeries in
-                VStack {
-                    
-                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(tvSeries.posterPath)")) { image in
-                            image.resizable()
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .cornerRadius(10)
-                    
-                    
-                    Text(tvSeries.name)
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                }
+                NavigationLink(destination: {
+                    PopularTVSeriesDetailView(tvSeries: tvSeries)
+                },label: {
+                    PopularTVSeriesCardView(tvSeries: tvSeries)
+                })
             }
-            .listStyle(PlainListStyle()) // Set the list style to PlainListStyle
+            .listStyle(PlainListStyle())
             .background(Color.clear)
             .navigationTitle("Popular TV Series")
-            
         }
     }
 }
@@ -42,3 +32,4 @@ struct PopularTVSeriesView: View {
 #Preview {
     PopularTVSeriesView(viewModel: PopularTVSeriesViewModel())
 }
+

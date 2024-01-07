@@ -10,19 +10,20 @@ import NetworkManager
 
 class PopularTVSeriesViewModel: ObservableObject {
     
-    @Published var bangladesh: String = "yoyo"
-    @Published var popularTVSeries: [Result] = []
-
+    // MARK: - Properties
+    @Published var popularTVSeries: [PopularTVSeriesResult] = []
+    
+    // MARK: - Init
     init() {
         Task {
             await fetchPopularTVSeries()
         }
     }
     
-    
+    // MARK: - GET Network Call
     private func fetchPopularTVSeries() async {
-        let urlString = "https://api.themoviedb.org/3/tv/popular?api_key=a27bd3ea25aaafd9c7c1fea4183a7eba"
-
+        let urlString = Constnats.popularTVSeriesEndpoint
+        
         do {
             let popularTVSeriesResponse: PopularTVSeriesModel = try await NetworkManager.shared.fetchData(fromURL: urlString)
             await MainActor.run {
@@ -32,4 +33,11 @@ class PopularTVSeriesViewModel: ObservableObject {
             print(error)
         }
     }
+}
+
+
+// MARK: - Constants
+struct Constnats {
+    static var API_KEY = "a27bd3ea25aaafd9c7c1fea4183a7eba"
+    static var popularTVSeriesEndpoint = "https://api.themoviedb.org/3/tv/popular?api_key=\(API_KEY)"
 }

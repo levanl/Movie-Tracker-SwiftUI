@@ -10,67 +10,53 @@ import NetworkManager
 
 
 struct TVSeriesOnAirCell: View {
+    //MARK: -properties
     let TVSeriesOnAirmodel: TVSeriesOnAirModel
 
-    var body: some View {
+//MARK: -private properties
+    private var asyncImageView: some View {
+        AsyncImage(url: URL(string: TVSeriesOnAirmodel.TVSeriesOnAirImage)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        } placeholder: {
+            ProgressView()
+        }
+        .aspectRatio(contentMode: .fill)
+        .frame(maxHeight: 1000)
+        .cornerRadius(15)
+        .shadow(radius: 50)
+    }
+
+    private var titleText: some View {
+        Text(TVSeriesOnAirmodel.TVSeriesOnAirName)
+            .font(.headline)
+            .padding(.top, 4)
+            .padding(.bottom, 2)
+    }
+
+    private var detailsHStack: some View {
+        HStack {
+            Text("\(TVSeriesOnAirmodel.TVSeriesOnAirYear)")
+                .font(.subheadline)
+            Spacer()
+            Text("\(TVSeriesOnAirmodel.TVSeriesOnAirLanguage)")
+                .font(.subheadline)
+        }
+        .foregroundColor(.gray)
+    }
+
+    private var cellVStack: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: TVSeriesOnAirmodel.TVSeriesOnAirImage)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } placeholder: {
-                ProgressView()
-            }
-            .aspectRatio(contentMode: .fill)
-            .frame(maxHeight: 1000)
-            .cornerRadius(15)
-            .shadow(radius: 50)
-
-            Text(TVSeriesOnAirmodel.TVSeriesOnAirName)
-                .font(.headline)
-                .padding(.top, 4)
-                .padding(.bottom, 2)
-
-            HStack {
-                Text("\(TVSeriesOnAirmodel.TVSeriesOnAirYear)")
-                    .font(.subheadline)
-                Spacer()
-                Text("\(TVSeriesOnAirmodel.TVSeriesOnAirLanguage)")
-                    .font(.subheadline)
-            }
-            .foregroundColor(.gray)
-            
+            asyncImageView
+            titleText
+            detailsHStack
         }
         .shadow(radius: 20)
         .padding()
-        
     }
-}
-
-struct OnAirTVSeriesSearchBar: View {
-    @Binding var onAirTvSeriesSearchText: String
-
+//MARK: -body
     var body: some View {
-        HStack {
-            TextField("Search for TV Series on air right now", text: $onAirTvSeriesSearchText)
-                .padding(8)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
-
-            Spacer()
-
-            if !onAirTvSeriesSearchText.isEmpty {
-                Button(action: {
-                    onAirTvSeriesSearchText = ""
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.gray)
-                }
-                .padding(.trailing, 10)
-                .transition(.move(edge: .trailing))
-            }
-        }
+        cellVStack
     }
 }

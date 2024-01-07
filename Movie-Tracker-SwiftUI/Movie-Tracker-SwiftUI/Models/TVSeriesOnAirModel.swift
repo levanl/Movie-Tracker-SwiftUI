@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//MARK: -Model for the TVSeries
 struct TVSeriesOnAirModel: Identifiable {
     let TVSeriesOnAirName: String
     let TVSeriesOnAirYear: String

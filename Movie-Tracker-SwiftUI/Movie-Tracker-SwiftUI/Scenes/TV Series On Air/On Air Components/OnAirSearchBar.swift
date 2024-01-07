@@ -7,12 +7,37 @@
 
 import SwiftUI
 
-struct OnAirSearchBar: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
 
-#Preview {
-    OnAirSearchBar()
+struct OnAirTVSeriesSearchBar: View {
+//MARK: -Properties:
+    @Binding var onAirTvSeriesSearchText: String
+
+// MARK: -Private Properties:
+    private var searchBarHStack: some View {
+        HStack {
+            TextField("Search for TV Series on air right now", text: $onAirTvSeriesSearchText)
+                .padding(8)
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+
+            Spacer()
+
+            if !onAirTvSeriesSearchText.isEmpty {
+                Button(action: {
+                    onAirTvSeriesSearchText = ""
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.gray)
+                }
+                .padding(.trailing, 10)
+                .transition(.move(edge: .trailing))
+            }
+        }
+    }
+//MARK: -Body:
+    var body: some View {
+        searchBarHStack
+    }
 }

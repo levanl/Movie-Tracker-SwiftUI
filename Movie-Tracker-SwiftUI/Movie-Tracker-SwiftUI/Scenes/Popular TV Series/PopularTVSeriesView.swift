@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct PopularTVSeriesView: View {
+    
+    // MARK: - Properties
+    @StateObject var viewModel = PopularTVSeriesViewModel()
+    
+    // MARK: - Body
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List(viewModel.popularTVSeries, id: \.id) { tvSeries in
+                NavigationLink(value: tvSeries) {
+                    PopularTVSeriesCardView(tvSeries: tvSeries)
+                }
+            }
+            .navigationDestination(for: PopularTVSeriesResult.self, destination: { tvSeries in
+                PopularTVSeriesDetailView(tvSeries: tvSeries)
+            })
+            .listStyle(PlainListStyle())
+            .background(Color.clear)
+            .navigationTitle("Popular TV Series")
+        }
     }
 }
 
 #Preview {
-    PopularTVSeriesView()
+    PopularTVSeriesView(viewModel: PopularTVSeriesViewModel())
 }
+

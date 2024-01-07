@@ -7,12 +7,26 @@
 
 import SwiftUI
 
-struct SeriesComponent: View {
+struct PopularTVSeriesCardView: View {
+    
+    // MARK: - Properties
+    let tvSeries: PopularTVSeriesResult
+    
+    // MARK: - Body
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(tvSeries.posterPath)")) { image in
+                image.resizable()
+                    .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                ProgressView()
+            }
+            .cornerRadius(10)
+            
+            Text(tvSeries.name)
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+        }
     }
-}
-
-#Preview {
-    SeriesComponent()
 }

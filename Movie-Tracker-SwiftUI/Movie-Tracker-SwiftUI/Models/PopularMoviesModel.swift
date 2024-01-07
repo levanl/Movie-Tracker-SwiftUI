@@ -5,6 +5,7 @@
 //  Created by Levan Loladze on 05.01.24.
 //
 
+
  
 // MARK: - Welcome
 struct PopularMovie: Decodable {
@@ -39,6 +40,5 @@ enum OriginalLanguage: String, Codable {
     case es = "es"
     case tl = "tl"
 }
-
 
 

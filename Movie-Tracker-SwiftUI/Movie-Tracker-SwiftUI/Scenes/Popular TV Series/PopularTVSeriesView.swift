@@ -16,12 +16,13 @@ struct PopularTVSeriesView: View {
     var body: some View {
         NavigationStack {
             List(viewModel.popularTVSeries, id: \.id) { tvSeries in
-                NavigationLink(destination: {
-                    PopularTVSeriesDetailView(tvSeries: tvSeries)
-                },label: {
+                NavigationLink(value: tvSeries) {
                     PopularTVSeriesCardView(tvSeries: tvSeries)
-                })
+                }
             }
+            .navigationDestination(for: PopularTVSeriesResult.self, destination: { tvSeries in
+                PopularTVSeriesDetailView(tvSeries: tvSeries)
+            })
             .listStyle(PlainListStyle())
             .background(Color.clear)
             .navigationTitle("Popular TV Series")

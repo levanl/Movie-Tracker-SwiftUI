@@ -18,7 +18,7 @@ struct PopularTVSeriesModel: Codable {
 }
 
 // MARK: - Result
-struct PopularTVSeriesResult: Codable {
+struct PopularTVSeriesResult: Codable, Hashable {
     let id: Int
     let originCountry: [String]
     let originalLanguage, originalName, overview: String

@@ -8,7 +8,7 @@
 import SwiftUI
 import NetworkManager
 
-class PopularTVSeriesViewModel: ObservableObject {
+final class PopularTVSeriesViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var popularTVSeries: [PopularTVSeriesResult] = []

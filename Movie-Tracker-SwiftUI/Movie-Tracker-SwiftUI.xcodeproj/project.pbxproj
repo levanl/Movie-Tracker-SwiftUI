@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C43017832B4A83F100F04670 /* PopularTVSeriesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43017822B4A83F100F04670 /* PopularTVSeriesDetailView.swift */; };
+		C43017852B4AE01000F04670 /* PopularTVSeriesDetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43017842B4AE01000F04670 /* PopularTVSeriesDetailCardView.swift */; };
 		C4E0C4D42B4848BB00633C95 /* Movie_Tracker_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E0C4D32B4848BB00633C95 /* Movie_Tracker_SwiftUIApp.swift */; };
 		C4E0C4D82B4848BD00633C95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4E0C4D72B4848BD00633C95 /* Assets.xcassets */; };
 		C4E0C4DB2B4848BD00633C95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4E0C4DA2B4848BD00633C95 /* Preview Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		C43017822B4A83F100F04670 /* PopularTVSeriesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesDetailView.swift; sourceTree = "<group>"; };
+		C43017842B4AE01000F04670 /* PopularTVSeriesDetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesDetailCardView.swift; sourceTree = "<group>"; };
 		C4E0C4D02B4848BB00633C95 /* Movie-Tracker-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie-Tracker-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E0C4D32B4848BB00633C95 /* Movie_Tracker_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_Tracker_SwiftUIApp.swift; sourceTree = "<group>"; };
 		C4E0C4D72B4848BD00633C95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E0C5142B484C8A00633C95 /* SeriesComponent.swift */,
+				C43017842B4AE01000F04670 /* PopularTVSeriesDetailCardView.swift */,
 			);
 			path = "Series Components";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				C4E0C51B2B484CB900633C95 /* CinemaComponent.swift in Sources */,
 				C4E0C4EA2B484A5400633C95 /* PopularMoviesModel.swift in Sources */,
 				C4E0C4F02B484A8500633C95 /* TVSeriesOnAirModel.swift in Sources */,
+				C43017852B4AE01000F04670 /* PopularTVSeriesDetailCardView.swift in Sources */,
 				C4E0C5032B484BB700633C95 /* PopularPersonsViewModel.swift in Sources */,
 				C4E0C5172B484C9C00633C95 /* PersonsComponent.swift in Sources */,
 				C4E0C4E82B484A4600633C95 /* MoviesInCinemaModel.swift in Sources */,

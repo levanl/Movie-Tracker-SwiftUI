@@ -6,6 +6,7 @@
 //
 
 import Foundation
+PopularMovies
  
 // MARK: - Welcome
 struct PopularMovie: Codable {
@@ -56,5 +57,5 @@ enum OriginalLanguage: String, Codable {
     case tl = "tl"
 }
 
-
+ main
 

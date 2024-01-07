@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct PopularMoviesView: View {
+    @ObservedObject var viewModel = PopularMoviesViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(viewModel.movies, id: \.id) { movie in
+                Text(movie.title)
+                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)")) { image in
+                                            image.resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        .cornerRadius(10)
+            }
+            .navigationBarTitle("Popular Movies")
+        }
+       
     }
 }
 
-#Preview {
-    PopularMoviesView()
+struct PopularMoviesView_Previews: PreviewProvider {
+    static var previews: some View {
+        PopularMoviesView()
+    }
 }

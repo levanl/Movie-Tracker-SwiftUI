@@ -11,7 +11,7 @@ struct PopularMoviesView: View {
     @ObservedObject var viewModel = PopularMoviesViewModel()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(viewModel.movies, id: \.id) { movie in
                 Text(movie.title)
                 AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)")) { image in

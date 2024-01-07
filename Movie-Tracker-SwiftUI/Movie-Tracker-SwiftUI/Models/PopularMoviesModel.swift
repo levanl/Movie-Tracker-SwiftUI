@@ -5,10 +5,9 @@
 //  Created by Levan Loladze on 05.01.24.
 //
 
-import Foundation
  
 // MARK: - Welcome
-struct PopularMovie: Codable {
+struct PopularMovie: Decodable {
     let page: Int
     let results: [PopularMoviesResult]
     let totalPages, totalResults: Int
@@ -21,7 +20,7 @@ struct PopularMovie: Codable {
 }
  
 // MARK: - Result
-struct PopularMoviesResult: Codable {
+struct PopularMoviesResult: Decodable {
     let adult: Bool
     let backdropPath: String
     let genreIDS: [Int]
@@ -33,22 +32,7 @@ struct PopularMoviesResult: Codable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
- 
-    enum CodingKeys: String, CodingKey {
-        case adult
-        case backdropPath = "backdrop_path"
-        case genreIDS = "genre_ids"
-        case id
-        case originalLanguage = "original_language"
-        case originalTitle = "original_title"
-        case overview, popularity
-        case posterPath = "poster_path"
-        case releaseDate = "release_date"
-        case title, video
-        case voteAverage = "vote_average"
-        case voteCount = "vote_count"
-    }
-}
+ }
  
 enum OriginalLanguage: String, Codable {
     case en = "en"

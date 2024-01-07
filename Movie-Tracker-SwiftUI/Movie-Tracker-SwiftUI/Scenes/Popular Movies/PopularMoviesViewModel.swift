@@ -8,7 +8,7 @@
 import SwiftUI
 import NetworkManager
 
-class PopularMoviesViewModel: ObservableObject {
+final class PopularMoviesViewModel: ObservableObject {
     @Published var movies: [PopularMoviesResult] = []
     init() {
             Task {
@@ -16,7 +16,7 @@ class PopularMoviesViewModel: ObservableObject {
             }
         }
 
-    func fetchPopularMovies() async {
+    private func fetchPopularMovies() async {
         let apiKey = "a27bd3ea25aaafd9c7c1fea4183a7eba"
         let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)"
         
